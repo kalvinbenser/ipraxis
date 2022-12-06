@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
     log_type:{
         type: Sequelize.INTEGER,
         allowNull: false,
-        comment: "0 ->Login ,1 ->Logout ,2 ->Failed_Login ,3 -> Forget"
+        comment: "1 ->Login ,2 ->Logout ,3 ->Failed_Login ,4 -> Forget"
     },
     createdOn:{
         type: Sequelize.DATE,
