@@ -31,7 +31,7 @@ exports.createAdminLogin = async (req, res) => {
     });
 };
 
-exports.getAdminLogin = async (req, res) => {
+exports.checkAdminLogin = async (req, res) => {
     const email = req.body.user_email;
     const password = req.body.user_password;
     const getAdminData = await AdminLogin.findOne({ where: { user_email: email } });
