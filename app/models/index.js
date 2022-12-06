@@ -25,5 +25,9 @@ db.sequelize = sequelize;
 
 db.adminLogin = require("./login.model.js")(sequelize, Sequelize);
 db.logoutModel = require("./logout.model.js")(sequelize, Sequelize);
+db.doctorModel = require("./doctor.model.js")(sequelize, Sequelize);
+db.patientModel = require("./patient.model.js")(sequelize, Sequelize);
+db.labModel = require("./lab.model.js")(sequelize, Sequelize);
+
 
 module.exports = db;

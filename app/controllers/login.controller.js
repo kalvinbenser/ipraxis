@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt')
 const db = require("../models");
 const AdminLogin = db.adminLogin;
-const logoutController = db.logoutModel;
 const  RESPONSE  = require("../constants/response");
 const { MESSAGE } = require("../constants/messages");
 const { StatusCode } = require("../constants/HttpStatusCode");
@@ -14,6 +13,8 @@ exports.createAdminLogin = async (req, res) => {
         user_email: req.body.user_email,
         user_password: await bcrypt.hash(req.body.user_password, salt),
         user_type: req.body.user_type,
+        status: req.body.status,
+        delete_status: req.body.delete_status,
         createdBy: req.body.createdBy,
         updatedBy: req.body.updatedBy
     };
@@ -43,12 +44,12 @@ exports.getAdminLogin = async (req, res) => {
           RESPONSE.Success.data = { id: getAdminData.id };
           res.status(StatusCode.CREATED.code).send(RESPONSE.Success);
         } else {
-          RESPONSE.Failure.Message = "The password you have entered is incorrect";
+          RESPONSE.Failure.Message = MESSAGE.INCORRECT_PASSWORD;
           res.status(StatusCode.BAD_REQUEST.code).send(RESPONSE.Failure);
         }
       });
     } else {
-      RESPONSE.Failure.Message = "The email you have entered is incorrect";
+      RESPONSE.Failure.Message = MESSAGE.INCORRECT_EMAIL;
       res.status(StatusCode.BAD_REQUEST.code).send(RESPONSE.Failure);
     }
   };
