@@ -26,7 +26,7 @@ module.exports = (sequelize, Sequelize) => {
     status: {
       type: Sequelize.INTEGER,
       allowNull: false,
-      comment: "0 ->InActive ,1 ->Active",
+      comment: "2 ->InActive ,1 ->Active",
     },
     delete_status: {
       type: Sequelize.INTEGER,
