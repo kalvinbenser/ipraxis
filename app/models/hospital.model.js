@@ -1,24 +1,20 @@
 module.exports = (sequelize, Sequelize) => {
-    const doctorModel = sequelize.define("ip_tbl_pm_doctor",{
-        doctor_id: {
+    const hospitalModel = sequelize.define("ip_tbl_pm_hospital",{
+        hospital_id: {
             type: Sequelize.INTEGER,
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
         },
-        user_master_id: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-        },
-        doctor_name: {
+        hospital_name: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        address:{
+        address: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        phone_number: {
+        phone_number:{
             type: Sequelize.BIGINT,
             allowNull: false,
         },
@@ -34,16 +30,16 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,  //license number
             allowNull: false,
         },
-        doctor_GST_number: {
+        hospital_GST_number: {
             type: Sequelize.STRING,
             allowNull: false,
         },
-        doctor_status: {
+        hospital_status: {
             type: Sequelize.INTEGER,
             allowNUll:false,
             comment:"2 ->InActive ,1 ->Active"
         },
-        doctor_delete_status: {
+        hospital_delete_status: {
             type: Sequelize.INTEGER,
             allowNull:false,
             comment:"0 ->Not_Delete ,1 ->Delete"
@@ -63,7 +59,7 @@ module.exports = (sequelize, Sequelize) => {
         updatedAt: {
             type: Sequelize.DATE,
             allowNull: true,
-          },
+          }
     })
-    return doctorModel;
+    return hospitalModel;
 }
