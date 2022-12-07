@@ -14,10 +14,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.INTEGER,
         allowNull: false,
         comment: "1 ->Login ,2 ->Logout ,3 ->Failed_Login ,4 -> Forget"
-    },
-    createdOn:{
-        type: Sequelize.DATE,
-        allowNUll: false
     }
 });
   return logoutModel;
