@@ -75,9 +75,9 @@ exports.checkAdminLogin = async (req, res) => {
         }
       });
     } else {
-      const user_master_id=getAdminData.user_master_id;
-      const type=3
-      const createLog= await createUserLog(user_master_id,type)
+      const type=3;
+      const user_master_id = 0;
+      const createLog= await createUserLog(user_master_id, type)
       console.log("createLog",createLog)
       RESPONSE.Failure.Message = MESSAGE.INCORRECT_EMAIL;
       res.status(StatusCode.BAD_REQUEST.code).send(RESPONSE.Failure);
