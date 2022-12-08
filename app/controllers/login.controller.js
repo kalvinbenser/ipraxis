@@ -58,7 +58,7 @@ exports.checkAdminLogin = async (req, res) => {
       const HashPassword = getAdminData.user_password;
       bcrypt.compare(password, HashPassword,  async(err, result) => {
         if (result) {
-          const user_master_id=result.user_master_id
+          const user_master_id=getAdminData.user_master_id
           const type=1
           const createLog= await createUserLog(user_master_id,type)
           console.log("createLog",createLog)
@@ -66,7 +66,7 @@ exports.checkAdminLogin = async (req, res) => {
           RESPONSE.Success.data = { id: getAdminData.user_master_id };
           res.status(StatusCode.CREATED.code).send(RESPONSE.Success);
         } else {
-          const user_master_id=0;
+          const user_master_id=getAdminData.user_master_id;
           const type=4;
           const createLog= await createUserLog(user_master_id,type)
           console.log("createLog",createLog)
@@ -75,7 +75,7 @@ exports.checkAdminLogin = async (req, res) => {
         }
       });
     } else {
-      const user_master_id=0
+      const user_master_id=getAdminData.user_master_id;
       const type=3
       const createLog= await createUserLog(user_master_id,type)
       console.log("createLog",createLog)
